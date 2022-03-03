@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/screens/screens.dart';
+import 'package:todo_app/theme/theme.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,14 +12,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo app',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (_) => const HomeScreen(),
+        '/add': (_) => const AddTodoScreen(),
+      },
+      theme: AppTheme.mainTheme(context),
     );
   }
 }
